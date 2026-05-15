@@ -1,0 +1,73 @@
+@@include('../layouts/head-page-meta.html', {'title': 'Login'})
+@@include('../layouts/head-css.html')
+@@include('../layouts/loader.html')
+
+<div class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900">
+  <!-- Imagen de fondo con ID para el efecto -->
+  <div id="parallax-bg" class="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-100 ease-out" 
+       style="background-image: url('/assets/images/authentication/img-auth-bg-1.jpg'); transform: scale(1.1);"></div>
+  
+  <!-- Capa oscura para contraste -->
+  <div class="absolute inset-0 z-10 bg-black/50 backdrop-blur-sm"></div>
+
+  <!-- Tarjeta Glassmorphism -->
+  <div class="relative z-20 w-full max-w-md px-4">
+    <div class="backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl shadow-2xl p-8">
+      <!-- Header -->
+      <div class="text-center mb-6">
+        <h2 class="text-2xl font-bold text-white tracking-tight">Bienvenido</h2>
+        <p class="text-white/70 text-sm mt-1">Ingresa tus credenciales para continuar</p>
+      </div>
+
+      <!-- Formulario -->
+      <form action="/dashboard/index.html" method="GET" class="space-y-5">
+        <div>
+          <label for="email" class="block text-white/90 text-sm font-medium mb-2">Correo electrónico</label>
+          <input type="email" id="email" name="email" required
+            class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/25 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 backdrop-blur-sm"
+            placeholder="ejemplo@correo.com">
+        </div>
+
+        <div>
+          <label for="password" class="block text-white/90 text-sm font-medium mb-2">Contraseña</label>
+          <input type="password" id="password" name="password" required
+            class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/25 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 backdrop-blur-sm"
+            placeholder="••••••••">
+        </div>
+
+        <div class="flex items-center justify-between">
+          <label class="flex items-center cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 rounded border-white/30 bg-white/10 text-primary-500 focus:ring-primary-500 focus:ring-offset-0">
+            <span class="ml-2 text-white/80 text-sm">Recordarme</span>
+          </label>
+          <a href="#" class="text-sm text-primary-300 hover:text-primary-200 font-medium transition-colors">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <button type="submit" 
+          class="w-full py-3 px-4 bg-gradient-to-r from-primary-600 to-primary-800 hover:from-primary-700 hover:to-primary-900 text-white font-semibold rounded-lg shadow-lg hover:shadow-primary-900/40 transition-all duration-300 transform hover:-translate-y-0.5">
+          Iniciar sesión
+        </button>
+      </form>
+
+      <!-- Footer -->
+      <div class="mt-6 text-center text-white/80 text-sm">
+        ¿No tienes una cuenta? 
+        <a href="register-v1.html" class="text-primary-300 hover:text-primary-200 font-semibold transition-colors">Crear cuenta</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Script para el efecto de movimiento del fondo -->
+<script>
+  document.addEventListener('mousemove', (e) => {
+    const bg = document.getElementById('parallax-bg');
+    // Calculamos la posición relativa del mouse (-1 a 1) y la multiplicamos por la sensibilidad deseada (20px)
+    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+    // Aplicamos la transformación manteniendo el scale(1.1) para evitar bordes vacíos
+    bg.style.transform = `scale(1.1) translate(${x}px, ${y}px)`;
+  });
+</script>
+
+@@include('../layouts/footer-js.html')

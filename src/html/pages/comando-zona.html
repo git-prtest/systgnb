@@ -1,0 +1,130 @@
+<head>
+  @@include('../layouts/head-page-meta.html', {'title': 'Comandos de Zonas'})
+  @@include('../layouts/head-css.html')
+</head>
+<!-- [Head] end -->
+<!-- [Body] Start -->
+
+<body>
+  @@include('../layouts/layout-vertical.html')
+
+  <div class="pc-container">
+    <div class="pc-content">
+        
+      <!-- Encabezado & Filtros -->
+      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-6 gap-4">
+        <div>
+          @@include('../layouts/breadcrumb.html', {'breadcrumb-item': 'Comandos de Zonas', 'breadcrumb-item-active': 'Listado de Comandos de Zonas'})
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
+          <!-- Buscador -->
+          <div class="relative w-full sm:w-72">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <i data-feather="search" class="text-gray-400 w-4 h-4"></i>
+            </div>
+            <input type="text" id="comando-zona-search" 
+                   class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-theme-border dark:border-themedark-border bg-theme-inputbg dark:bg-themedark-inputbg text-theme-headings dark:text-themedark-headings focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all" 
+                   placeholder="Buscar por nombre o ubicación...">
+          </div>
+          <button class="btn btn-primary flex items-center justify-center gap-2 shadow-lg shadow-primary-500/20 whitespace-nowrap">
+            <i data-feather="plus"></i> <span>Nuevo</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Grid de Tarjetas (Componentes) -->
+      <div id="comando-zona-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
+        
+        @@include('./components/comando-zona-card.html', {
+          'photo': '../assets/images/cz/cz-gnb-44-prev_001.jpg',
+          'sensei_photo': '../assets/images/command/command_001.jpg',
+          'name': 'CZGNB-44 (MIRANDA)',
+          'location': 'Av. Principal con calle Nueva, Los Teques, Estado Miranda',
+          'sensei_name': 'Márquez Guillén, Luis Miguel',
+          'rank': 'GB',
+          'experience': 'GNB',
+          'students': '142',
+          'destacamentos': '05'
+        })
+
+        @@include('./components/comando-zona-card.html', {
+          'photo': '../assets/images/cz/cz-gnb-44-prev_001.jpg',
+          'sensei_photo': '../assets/images/command/command_001.jpg',
+          'name': 'CZGNB-43 (DTTO. CAPITAL)',
+          'location': 'Av. Principal con calle Nueva, Los Teques, Estado Miranda',
+          'sensei_name': 'Patiño Salgado, Carlos Miguel',
+          'rank': 'GB',
+          'experience': 'GNB',
+          'students': '180',
+          'destacamentos': '05'
+        })
+
+        @@include('./components/comando-zona-card.html', {
+          'photo': '../assets/images/cz/cz-gnb-44-prev_001.jpg',
+          'sensei_photo': '../assets/images/command/command_001.jpg',
+          'name': 'CZGNB-45 (LA GUAIRA)',
+          'location': 'Av. Principal con calle Nueva, Los Teques, Estado Miranda',
+          'sensei_name': 'Martínez Castillo, José Miguel',
+          'rank': 'GB',
+          'experience': 'GNB',
+          'students': '125',
+          'destacamentos': '05'
+        })
+
+        @@include('./components/comando-zona-card.html', {
+          'photo': '../assets/images/cz/cz-gnb-44-prev_001.jpg',
+          'sensei_photo': '../assets/images/command/command_001.jpg',
+          'name': 'CZGNB-52 (ANZOÁTEGUI)',
+          'location': 'Av. Principal con calle Nueva, Los Teques, Estado Miranda',
+          'sensei_name': 'Delgado Pereira, Alberto Miguel',
+          'rank': 'GB',
+          'experience': 'GNB',
+          'students': '138',
+          'destacamentos': '05'
+        })
+
+      </div>
+
+      <!-- Paginación -->
+      <nav class="flex flex-col sm:flex-row items-center justify-between mt-8 pt-4 border-t border-theme-border dark:border-themedark-border gap-4">
+        <div class="text-sm text-theme-bodycolor dark:text-themedark-bodycolor">
+          Mostrando <span class="font-medium text-theme-headings dark:text-themedark-headings">1-4</span> de <span class="font-medium text-theme-headings dark:text-themedark-headings">24</span> Comando de zonas
+        </div>
+        <div class="flex gap-2">
+          <button class="px-3 py-1.5 rounded-lg border border-theme-border dark:border-themedark-border text-theme-bodycolor hover:bg-theme-activebg dark:hover:bg-themedark-activebg disabled:opacity-50 transition-colors" disabled>Anterior</button>
+          <button class="px-3 py-1.5 rounded-lg bg-primary-500 text-white font-medium">1</button>
+          <button class="px-3 py-1.5 rounded-lg border border-theme-border dark:border-themedark-border text-theme-bodycolor hover:bg-theme-activebg dark:hover:bg-themedark-activebg transition-colors">2</button>
+          <button class="px-3 py-1.5 rounded-lg border border-theme-border dark:border-themedark-border text-theme-bodycolor hover:bg-theme-activebg dark:hover:bg-themedark-activebg transition-colors">3</button>
+          <span class="px-2 py-1.5 text-theme-bodycolor">...</span>
+          <button class="px-3 py-1.5 rounded-lg border border-theme-border dark:border-themedark-border text-theme-bodycolor hover:bg-theme-activebg dark:hover:bg-themedark-activebg transition-colors">Siguiente</button>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  @@include('../layouts/footer-block.html')
+  @@include('../layouts/footer-js.html')
+
+  <!-- Script para búsqueda en frontend -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('comando-zona-search');
+      const grid = document.getElementById('comando-zona-grid');
+
+      if (searchInput && grid) {
+        searchInput.addEventListener('input', (e) => {
+          const term = e.target.value.toLowerCase().trim();
+          const cards = grid.querySelectorAll('.comando-zona-card');
+          
+          cards.forEach(card => {
+            const searchable = card.dataset.searchable.toLowerCase();
+            const match = searchable.includes(term);
+            card.classList.toggle('hidden', !match);
+          });
+        });
+      }
+    });
+  </script>
+  </body>
+  <!-- [Body] end -->
+</html>

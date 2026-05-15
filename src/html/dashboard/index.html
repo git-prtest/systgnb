@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en" @@bodySetup>
+  <!-- [Head] start -->
+
+  <head>
+    @@include('../layouts/head-page-meta.html', {'title': 'Inicio'})
+    @@include('../layouts/head-css.html')
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  </head>
+  <!-- [Head] end -->
+  <!-- [Body] Start -->
+
+  <body>
+    @@include('../layouts/layout-vertical.html')
+
+    <!-- [ Main Content ] start -->
+    <div class="pc-container">
+      <div class="pc-content">
+        <!-- [ Main Content ] start -->
+        <div class="grid grid-cols-12 gap-x-6">
+
+          <div class="col-span-12 xl:col-span-4">
+            <div class="card card-social">
+              <div class="card-body border-b border-theme-border dark:border-themedark-border">
+                <div class="flex items-center justify-center">
+                  <div class="shrink-0 text-2xl">
+                    <i class="fas fa-users text-primary-500 text-[36px]"></i>
+                    Comandos de Zona
+                  </div>
+                  <div class="grow ltr:text-right rtl:text-left">
+                    <h2 class="text-primary-500 mb-2">25</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="grid grid-cols-12 gap-x-6">
+                  <div class="col-span-6">
+                    <h6 class="text-center mb-2.5"><span class="text-muted m-r-5">
+                    <i class="fas fa-user text-success-500 text-xl"></i> Personal:</span>500</h6>
+                    <div class="w-full bg-theme-bodybg rounded-lg h-1.5 dark:bg-themedark-bodybg">
+                      <div class="bg-theme-bg-1 h-full rounded-lg shadow-[0_10px_20px_0_rgba(0,0,0,0.3)]" role="progressbar" style="width: 100%"></div>
+                    </div>
+                  </div>
+                  <div class="col-span-6">
+                    <h6 class="text-center mb-2.5"><span class="text-muted m-r-5">
+                    <i class="fas fa-taxi text-blue-500 text-xl"></i> Vehículos:</span>250</h6>
+                    <div class="w-full bg-theme-bodybg rounded-lg h-1.5 dark:bg-themedark-bodybg">
+                      <div class="bg-theme-bg-3 h-full rounded-lg shadow-[0_10px_20px_0_rgba(0,0,0,0.3)]" role="progressbar" style="width: 100%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-span-12 xl:col-span-4">
+            <div class="card card-social">
+              <div class="card-body border-b border-theme-border dark:border-themedark-border">
+                <div class="flex items-center justify-center">
+                  <div class="shrink-0 text-2xl">
+                    <i class="fas fa-users text-primary-500 text-[36px]"></i>
+                    Comandos de E.E.
+                  </div>
+                  <div class="grow ltr:text-right rtl:text-left">
+                    <h2 class="text-primary-500 mb-2">78</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="grid grid-cols-12 gap-x-6">
+                  <div class="col-span-6">
+                    <h6 class="text-center mb-2.5"><span class="text-muted m-r-5">
+                    <i class="fas fa-user text-success-500 text-xl"></i> Personal:</span>500</h6>
+                    <div class="w-full bg-theme-bodybg rounded-lg h-1.5 dark:bg-themedark-bodybg">
+                      <div class="bg-theme-bg-1 h-full rounded-lg shadow-[0_10px_20px_0_rgba(0,0,0,0.3)]" role="progressbar" style="width: 100%"></div>
+                    </div>
+                  </div>
+                  <div class="col-span-6">
+                    <h6 class="text-center mb-2.5"><span class="text-muted m-r-5">
+                    <i class="fas fa-taxi text-blue-500 text-xl"></i> Vehículos:</span>250</h6>
+                    <div class="w-full bg-theme-bodybg rounded-lg h-1.5 dark:bg-themedark-bodybg">
+                      <div class="bg-theme-bg-3 h-full rounded-lg shadow-[0_10px_20px_0_rgba(0,0,0,0.3)]" role="progressbar" style="width: 100%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-12 xl:col-span-4">
+            <div class="card card-social">
+              <div class="card-body border-b border-theme-border dark:border-themedark-border">
+                <div class="flex items-center justify-center">
+                  <div class="shrink-0 text-2xl">
+                    <i class="fas fa-users text-primary-500 text-[36px]"></i>
+                    Parte Total GNB
+                  </div>
+                  <div class="grow ltr:text-right rtl:text-left">
+                    <h2 class="text-primary-500 mb-2">78</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="grid grid-cols-12 gap-x-6">
+                  <div class="col-span-6">
+                    <h6 class="text-center mb-2.5"><span class="text-muted m-r-5">
+                    <i class="fas fa-user text-success-500 text-xl"></i> Personal:</span>500</h6>
+                    <div class="w-full bg-theme-bodybg rounded-lg h-1.5 dark:bg-themedark-bodybg">
+                      <div class="bg-theme-bg-1 h-full rounded-lg shadow-[0_10px_20px_0_rgba(0,0,0,0.3)]" role="progressbar" style="width: 100%"></div>
+                    </div>
+                  </div>
+                  <div class="col-span-6">
+                    <h6 class="text-center mb-2.5"><span class="text-muted m-r-5">
+                    <i class="fas fa-taxi text-blue-500 text-xl"></i> Vehículos:</span>250</h6>
+                    <div class="w-full bg-theme-bodybg rounded-lg h-1.5 dark:bg-themedark-bodybg">
+                      <div class="bg-theme-bg-3 h-full rounded-lg shadow-[0_10px_20px_0_rgba(0,0,0,0.3)]" role="progressbar" style="width: 100%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-span-12 xl:col-span-12">
+            <!-- Mapa de Ubicación -->
+            <div class="bg-theme-cardbg dark:bg-themedark-cardbg rounded-xl shadow-sm border border-theme-border dark:border-themedark-border overflow-hidden">
+              <div class="p-4 border-b border-theme-border dark:border-themedark-border">
+                <h2 class="text-lg font-bold text-theme-headings dark:text-themedark-headings flex items-center gap-2">
+                  <i data-feather="map-pin" class="w-5 h-5 text-primary-500"></i> Ubicación
+                </h2>
+              </div>
+              <div id="dojo-map" class="h-svh w-full bg-gray-100 dark:bg-gray-800"></div>
+            </div>
+          </div>
+          
+        </div>
+        <!-- [ Main Content ] end -->
+      </div>
+    </div>
+    <!-- [ Main Content ] end -->
+    @@include('../layouts/footer-block.html') 
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    @@include('../layouts/footer-js.html')
+
+
+    <!-- Script para inicializar el mapa con múltiples dojos -->
+    
+
+
+
+    <!-- Script para inicializar el mapa -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        
+        var mapDiv = 'dojo-map'
+
+        // let layer001 = 'https://tile.openstreetmap.de/{z}/{x}/{y}.png';
+        // let attrb001 = '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+        // let layer002 = 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
+        // let layer003 = 'https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png';
+        // let layer300 = 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png';
+        // let layer005 = 'https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png';
+        // let layer006 = 'http://sgx.geodatenzentrum.de/wmts_topplus_open/tile/1.0.0/web/default/WEBMERCATOR/{z}/{y}/{x}.png';
+
+        var mapDefault = 'https://geonode.mppp.gob.ve/mapas/{z}/{x}/{y}.png';
+        var mapJawgStreets = 'https://tile.jawg.io/jawg-streets/{z}/{x}/{y}{r}.png?access-token=loM4YuJJlF1FA6jLlT36Rrrwf8s8GJn1psVnRgk0oTs08FT5eKNxSa8cJu3I9ipu';
+        var mapTheme = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+        var mapWiki = 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png';
+        var mapArcGISWI = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+        var mapOSMHOT = 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
+        var mapArcGISWTM = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}';
+        var Stadia_StamenTerrainLines = 'https://tiles.stadiamaps.com/tiles/stamen_terrain_lines/{z}/{x}/{y}{r}.{ext}';
+
+        var tileDefault = L.tileLayer(mapDefault, {minZoom: 0, maxZoom: 18, attribution: null});
+        let attrbJawgStreets = '<a href="https://www.jawg.io?utm_medium=map&utm_source=attribution" target="_blank">&copy; Jawg</a> - <a href="https://www.openstreetmap.org?utm_medium=map-attribution&utm_source=jawg" target="_blank">&copy; OpenStreetMap</a>&nbsp;contributors';
+        var tileJawgStreets = L.tileLayer(mapJawgStreets, {minZoom: 0, maxZoom: 18, attribution: attrbJawgStreets});
+        var tileTheme = L.tileLayer(mapTheme, {minZoom: 0, maxZoom: 18, attribution: null});
+        var tileWiki = L.tileLayer(mapWiki, {minZoom: 0, maxZoom: 18, attribution: null});
+        var tileArcGISWI = L.tileLayer(mapArcGISWI, {minZoom: 0, maxZoom: 18, attribution: null});
+        var tileOSMHOT = L.tileLayer(mapOSMHOT, {minZoom: 0, maxZoom: 18, attribution: null});
+        var tileArcGISWTM = L.tileLayer(mapArcGISWTM, {minZoom: 0, maxZoom: 18, attribution: null});
+
+        var baseMaps = {
+          "default": tileDefault,
+          "cartocdn": tileTheme,
+          "JawgStreets": tileJawgStreets,
+          "wikimedia": tileWiki,
+          "ArcgisWirldImagery": tileArcGISWI,
+          "OpenStreetMapHOT": tileOSMHOT,
+          "ArcGISWorld_Topo_Map": tileArcGISWTM,
+        };
+        
+        const dojoCoords = [10.24326, -66.55467];
+
+
+        const dojos = [
+          { id: 1, name: 'Dojo Bushido Central', coords: [19.4326, -99.1332], address: 'Av. Reforma 123, CDMX', phone: '+52 55 1234 5678', students: 142, sensei: 'Carlos Mendoza', isMain: true },
+          { id: 2, name: 'Dojo Bushido Norte', coords: [19.4850, -99.1420], address: 'Av. Insurgentes Nte 456, CDMX', phone: '+52 55 2345 6789', students: 98, sensei: 'Ana Takahashi', isMain: false },
+          { id: 3, name: 'Dojo Bushido Sur', coords: [19.3850, -99.1580], address: 'Calz. Tlalpan 789, CDMX', phone: '+52 55 3456 7890', students: 76, sensei: 'Ricardo Vega', isMain: false },
+          { id: 4, name: 'Dojo Bushido Oriente', coords: [19.4280, -99.0950], address: 'Av. Puebla 321, CDMX', phone: '+52 55 4567 8901', students: 54, sensei: 'Laura Jiménez', isMain: false }
+        ];
+
+        // Inicializar mapa
+        const map = L.map(mapDiv).setView(dojoCoords, 11);
+        // Se selecciona el mapa por defecto
+        tileOSMHOT.addTo(map);
+
+        // Se agrega selector de capas
+        L.control.layers(baseMaps).addTo(map);
+
+
+        const markersGroup = L.featureGroup();
+        
+
+        
+        // Icono personalizado (opcional - usa un marcador rojo por defecto)
+        const dojoIcon = L.divIcon({
+          className: 'custom-div-icon',
+          html: "<div style='background-color: #73142D; width: 12px; height: 12px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3);'></div>",
+          iconSize: [18, 18],
+          iconAnchor: [9, 9]
+        });
+        
+        // Marcador del dojo
+        L.marker(dojoCoords, { icon: dojoIcon })
+          .addTo(map)
+          .bindPopup('<a href="/pages/comando-zona-detalle.html"><b>CZGNB-44 (MIRANDA)</b></a><br>Av. Miranda / Guaicaipuro / Los Teques. Av. Principal con calle Nueva, Los Teques.')
+          .openPopup();
+        
+        // Ajustar mapa cuando se redimensione la ventana
+        window.addEventListener('resize', () => {
+          map.invalidateSize();
+        });
+      });
+    </script>
+  </body>
+  <!-- [Body] end -->
+</html>

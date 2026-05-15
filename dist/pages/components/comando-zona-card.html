@@ -1,0 +1,49 @@
+<!-- [ Dojo Card Component ] start -->
+<div class="comando-zona-card group relative bg-theme-cardbg dark:bg-themedark-cardbg rounded-xl shadow-sm border border-theme-border dark:border-themedark-border overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1" 
+     data-searchable="@@name @@location @@sensei_name">
+  
+  <!-- Foto Principal (Header) -->
+  <div class="relative h-52 overflow-hidden bg-gray-100 dark:bg-gray-800">
+    <img src="@@photo" 
+         class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:translate-x-2" 
+         alt="@@name">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+  </div>
+
+  <!-- Contenido -->
+  <div class="pt-4 px-5 pb-5">
+    <!-- Título & Ubicación -->
+    <h3 class="text-lg font-bold text-theme-headings dark:text-themedark-headings mb-1 truncate">@@name</h3>
+    <div class="flex items-center gap-1.5 text-sm text-theme-bodycolor dark:text-themedark-bodycolor mb-4">
+      <i data-feather="map-pin" class="w-4 h-4 shrink-0"></i>
+      <span class="truncate">@@location</span>
+    </div>
+
+    <!-- Datos del Sensei (Imagen a la izquierda, info a la derecha) -->
+    <div class="flex items-center gap-3 bg-gray-50 dark:bg-gray-700/40 rounded-lg p-3 mb-4 border border-gray-100 dark:border-gray-600/50">
+      <img src="@@sensei_photo" 
+           class="w-20 h-20 rounded-full object-cover border-2 border-theme-border dark:border-themedark-border shadow-sm shrink-0" 
+           alt="@@sensei_name">
+      <div class="flex-1 min-w-0">
+        <p class="text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-0.5">Comandante encargado</p>
+        <p class="text-sm font-semibold text-theme-headings dark:text-themedark-headings truncate">@@sensei_name</p>
+        <p class="text-xs text-theme-bodycolor dark:text-themedark-bodycolor">@@rank • @@experience</p>
+      </div>
+    </div>
+
+    <!-- Alumnos & Acción -->
+    <div class="flex items-center justify-between pt-3 border-t border-theme-border dark:border-themedark-border">
+      <div class="flex flex-col items-center justify-center bg-primary-50 dark:bg-primary-900/30 p-3 rounded-xl w-12 shrink-0">
+        <i data-feather="users" class="w-5 h-5 text-primary-600 dark:text-primary-400 mb-1"></i>
+        <span class="text-md font-bold text-theme-headings dark:text-themedark-headings">@@students</span>
+        <span class="text-[8px] uppercase tracking-wide text-gray-500 dark:text-gray-400">Parte</span>
+      </div>
+
+
+      <a href="../pages/comando-zona-detalle.html" class="text-sm font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400 transition-colors flex items-center gap-1 group-hover:gap-2">
+        Ver detalles <i data-feather="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+      </a>
+    </div>
+  </div>
+</div>
+<!-- [ Dojo Card Component ] end -->

@@ -1,0 +1,25 @@
+<!-- [ Sidebar Menu ] start -->
+<nav class="pc-sidebar !bg-transparent !shadow-none !border-r-0 overflow-hidden">
+  <!-- Imagen de fondo -->
+  <div class="absolute inset-0 z-0 bg-cover bg-center" 
+       style="background-image: url('../assets/images/authentication/img-auth-bg-1.jpg');"></div>
+  
+  <!-- Capa oscura + efecto glass -->
+  <div class="absolute inset-0 z-0 bg-gray-900/50 backdrop-blur-md"></div>
+
+  <!-- Contenido del sidebar -->
+  <div class="relative z-10 navbar-wrapper !bg-transparent">
+    <div class="m-header flex items-center py-4 px-6 h-header-height !bg-transparent">
+      <a href="../dashboard/index.html" class="b-brand flex items-center gap-3">
+        <img src="../assets/images/logo_escudo.png" class="img-fluid logo logo-md" alt="logo" />
+        <img src="../assets/images/favicon.svg" class="img-fluid logo logo-sm" alt="logo" />
+      </a>
+    </div>
+    <div class="navbar-content h-[calc(100vh_-_74px)] py-2.5 !bg-transparent">
+      <ul class="pc-navbar">
+        @@include('./menu-list.html')
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- [ Sidebar Menu ] end -->

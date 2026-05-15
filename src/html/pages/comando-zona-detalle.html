@@ -1,0 +1,325 @@
+<head>
+@@include('../layouts/head-page-meta.html', {'title': 'Detalle Comando de Zona'})
+@@include('../layouts/head-css.html')
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+</head>
+<!-- [Head] end -->
+<!-- [Body] Start -->
+
+<body>
+@@include('../layouts/layout-vertical.html')
+
+  <div class="pc-container">
+    <div class="pc-content">
+      @@include('../layouts/breadcrumb.html', {'breadcrumb-item': 'Comando de Zona', 'breadcrumb-item-active': 'CZGNB-44 (MIRANDA)'})
+      <!-- Encabezado con botón de retorno -->
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+        <div class="flex items-center gap-3">
+          <a href="comando-zona.html" class="btn btn-light border border-theme-border dark:border-themedark-border hover:bg-theme-activebg dark:hover:bg-themedark-activebg transition-colors flex items-center gap-2">
+            <i data-feather="arrow-left" class="w-4 h-4"></i> Volver al listado
+          </a>
+          <div class="pt-5-">
+            
+          </div>
+        </div>
+        <button class="btn btn-primary flex items-center gap-2 shadow-lg shadow-primary-500/20">
+          <i data-feather="edit-2"></i> <span>Editar</span>
+        </button>
+      </div>
+
+      <!-- Grid Principal -->
+      <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+        
+        <!-- 📍 Columna Izquierda: Información + Mapa + Fotos del Dojo (2/3 del ancho) -->
+        <div class="xl:col-span-2 space-y-6">
+            <!-- Galería de Fotos del Dojo -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="relative h-80 rounded-xl overflow-hidden border border-theme-border dark:border-themedark-border shadow-sm group">
+              <a href="../assets/images/cz/cz-gnb-44-ent_001.jpg" target="_blank">
+                <img src="../assets/images/cz/cz-gnb-44-ent_001.jpg" 
+                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                   alt="Sala Principal del Dojo">
+              </a>
+              <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+                <p class="text-white font-medium text-sm">Prevención</p>
+              </div>
+            </div>
+            <div class="relative h-80 rounded-xl overflow-hidden border border-theme-border dark:border-themedark-border shadow-sm group">
+                <a href="../assets/images/cz/cz-gnb-44-prev_001.jpg" target="_blank">
+                    <img src="../assets/images/cz/cz-gnb-44-prev_001.jpg" 
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                        alt="Área de Entrenamiento">
+                </a>
+                
+              <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+                <p class="text-white font-medium text-sm">Entrada Principal</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ficha del Dojo -->
+          <div class="bg-theme-cardbg dark:bg-themedark-cardbg rounded-xl shadow-sm border border-theme-border dark:border-themedark-border p-6 transition-shadow hover:shadow-md">
+            <h2 class="text-lg font-bold text-theme-headings dark:text-themedark-headings mb-4 flex items-center gap-2">
+              <i data-feather="map" class="w-5 h-5 text-primary-500"></i> Información detallada
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-3 rounded-lg">
+                <span class="block text-xs uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-1">Dirección</span>
+                <p class="font-medium text-theme-headings dark:text-themedark-headings">Miranda / Guaicaipuro / Los Teques. Av. Principal con calle Nueva, Los Teques.</p>
+              </div>
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-3 rounded-lg">
+                <span class="block text-xs uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-1">Referencia Geográfica</span>
+                <p class="font-medium text-theme-headings dark:text-themedark-headings">A 100 metros de la E/S La esquina</p>
+              </div>
+              <div class="sm:col-span-2 bg-gray-50 dark:bg-gray-700/30 p-3 rounded-lg">
+                <span class="block text-xs uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-1">Descripción</span>
+                <p class="text-theme-bodycolor dark:text-themedark-bodycolor leading-relaxed">
+                  Comando de Zona número 44 del estado Miranda.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mapa de Ubicación -->
+          <div class="bg-theme-cardbg dark:bg-themedark-cardbg rounded-xl shadow-sm border border-theme-border dark:border-themedark-border overflow-hidden">
+            <div class="p-4 border-b border-theme-border dark:border-themedark-border">
+              <h2 class="text-lg font-bold text-theme-headings dark:text-themedark-headings flex items-center gap-2">
+                <i data-feather="map-pin" class="w-5 h-5 text-primary-500"></i> Ubicación
+              </h2>
+            </div>
+            <div id="dojo-map" class="h-svh w-full bg-gray-100 dark:bg-gray-800"></div>
+          </div>
+        </div>
+
+        <!-- 🥋 Columna Derecha: Sensei + Inventario (1/3 del ancho) -->
+        <div class="space-y-6">
+          <!-- Ficha del Sensei -->
+          <div class="bg-theme-cardbg dark:bg-themedark-cardbg rounded-xl shadow-sm border border-theme-border dark:border-themedark-border p-6 transition-shadow hover:shadow-md">
+            <h2 class="text-lg font-bold text-theme-headings dark:text-themedark-headings mb-4 flex items-center gap-2">
+              <i data-feather="user-check" class="w-5 h-5 text-primary-500"></i> Comandante de Zona
+            </h2>
+            <div class="flex items-center gap-4 mb-4">
+              <img src="../assets/images/command/command_001.jpg" 
+                   class="w-20 h-20 rounded-full object-cover border-4 border-primary-100 dark:border-primary-800/50 shadow-sm" 
+                   alt="Márquez Guillén, Luis Miguel">
+              <div>
+                <h3 class="text-xl font-bold text-theme-headings dark:text-themedark-headings">Márquez Guillén, Luis Miguel</h3>
+                <p class="text-sm text-primary-600 dark:text-primary-400 font-semibold">GB • GNB</p>
+              </div>
+            </div>
+            <div class="space-y-3 text-sm border-t border-theme-border dark:border-themedark-border pt-4">
+              <div class="flex justify-between">
+                <span class="text-gray-500 dark:text-gray-400">Teléfonos</span>
+                <span class="font-medium text-theme-headings dark:text-themedark-headings">+58 426 5554433 / 58 412 5554433</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-500 dark:text-gray-400">Correo electrónico</span>
+                <span class="font-medium text-theme-headings dark:text-themedark-headings">lmarquezg@mail.com</span>
+              </div>
+              <p class="text-xs text-theme-bodycolor dark:text-themedark-bodycolor mt-2 leading-relaxed">
+                General de Brigada de la Guardia Nacional Bolivariana.
+              </p>
+            </div>
+          </div>
+
+          <!-- Personal Disponible -->
+          <div class="bg-theme-cardbg dark:bg-themedark-cardbg rounded-xl shadow-sm border border-theme-border dark:border-themedark-border p-6 transition-shadow hover:shadow-md">
+            <h2 class="text-lg font-bold text-theme-headings dark:text-themedark-headings mb-4 flex items-center gap-2">
+              <i class="material-icons-two-tone bg-primary-700 dark:bg-primary-400">group</i> Personal
+            </h2>
+            <div class="grid grid-cols-1 gap-4 mb-4">
+              <!-- Parte numérico -->
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">group</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">142</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Parte Numérico</div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+              <div class="bg-primary-50 dark:bg-primary-900/30 p-4 rounded-lg text-center border border-primary-100 dark:border-primary-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-primary-700 dark:bg-primary-400 mx-auto mb-2">person</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">70</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Parte Femenino</div>
+              </div>
+
+              <div class="bg-blue-50 dark:bg-blue-700/30 p-4 rounded-lg text-center border border-blue-100 dark:border-blue-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-blue-700 dark:bg-blue-400 mx-auto mb-2">person</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">72</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Parte Masculino</div>
+              </div>
+            </div>
+
+
+            <div class="grid grid-cols-3 gap-4 mb-4">
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">person</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">15</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Oficiales Generales</div>
+              </div>
+
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">person</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">25</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Oficiales Superiores</div>
+              </div>
+
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">person</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">102</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Oficiales Subalternos</div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 mb-4">
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">person</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">15</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Tropa Profesional</div>
+              </div>
+
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">person</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">25</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Tropa Alistadas</div>
+              </div>
+
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">person</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">102</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Personal Civil</div>
+              </div>
+            </div>
+
+
+            <div class="mt-4 pt-3 border-t border-theme-border dark:border-themedark-border flex items-center justify-between text-xs">
+              <span class="text-gray-500 dark:text-gray-400">Última actualización:</span>
+              <span class="font-medium text-theme-headings dark:text-themedark-headings">Hoy, 08:30 AM</span>
+            </div>
+          </div>
+
+          <!-- Estructura -->
+          <div class="bg-theme-cardbg dark:bg-themedark-cardbg rounded-xl shadow-sm border border-theme-border dark:border-themedark-border p-6 transition-shadow hover:shadow-md">
+            <h2 class="text-lg font-bold text-theme-headings dark:text-themedark-headings mb-4 flex items-center gap-2">
+              <i class="material-icons-two-tone bg-primary-700 dark:bg-primary-400">account_balance</i> Estructura
+            </h2>
+            <div class="grid grid-cols-1 gap-4 mb-4">
+              <!-- Destacamento -->
+              <div class="bg-gray-50 dark:bg-gray-900/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">house_siding</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">05</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Destacamentos</div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <!-- compañia -->
+              <div class="bg-gray-50 dark:bg-gray-900/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">house_siding</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">20</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Compañías</div>
+              </div>
+              <!-- Pelotones -->
+              <div class="bg-gray-50 dark:bg-gray-900/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">house_siding</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">60</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Pelotones</div>
+              </div>
+              <!-- Escuadra -->
+              <div class="bg-gray-50 dark:bg-gray-900/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">house_siding</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">90</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Escuadras</div>
+              </div>
+              <!-- PAC -->
+              <div class="bg-gray-50 dark:bg-gray-900/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">house_siding</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">65</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">PAC</div>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-theme-border dark:border-themedark-border flex items-center justify-between text-xs">
+              <span class="text-gray-500 dark:text-gray-400">Última actualización:</span>
+              <span class="font-medium text-theme-headings dark:text-themedark-headings">Hoy, 08:30 AM</span>
+            </div>
+          </div>
+
+          <!-- Vehículos -->
+          <div class="bg-theme-cardbg dark:bg-themedark-cardbg rounded-xl shadow-sm border border-theme-border dark:border-themedark-border p-6 transition-shadow hover:shadow-md">
+            <h2 class="text-lg font-bold text-theme-headings dark:text-themedark-headings mb-4 flex items-center gap-2">
+              <i class="material-icons-two-tone bg-primary-700 dark:bg-primary-400">local_taxi</i> Vehículos
+            </h2>
+            <div class="grid grid-cols-2 gap-4">
+              <!-- Vehiculos operativos -->
+              <div class="bg-emerald-50 dark:bg-emerald-900/30 p-4 rounded-lg text-center border border-emerald-100 dark:border-emerald-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-success-700 dark:bg-success-400 mx-auto mb-2">local_taxi</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">25</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Operativos</div>
+              </div>
+              <!-- Vehiculos inoperativos -->
+              <div class="bg-primary-50 dark:bg-primary-700/30 p-4 rounded-lg text-center border border-primary-100 dark:border-primary-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-primary-700 dark:bg-primary-400 mx-auto mb-2">local_taxi</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">4</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Inoperativos</div>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-theme-border dark:border-themedark-border flex items-center justify-between text-xs">
+              <span class="text-gray-500 dark:text-gray-400">Última actualización:</span>
+              <span class="font-medium text-theme-headings dark:text-themedark-headings">Hoy, 08:30 AM</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+@@include('../layouts/footer-block.html')
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+@@include('../layouts/footer-js.html')
+
+<!-- Script para inicializar el mapa -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const dojoCoords = [10.24326, -66.55467];
+    
+    // Inicializar mapa
+    const map = L.map('dojo-map').setView(dojoCoords, 11);
+
+    let layer001 = 'https://tile.openstreetmap.de/{z}/{x}/{y}.png';
+    let attrb001 = '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+    let layer002 = 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
+    let layer003 = 'https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png';
+    let layer300 = 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png';
+    let layer005 = 'https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png';
+    let layer006 = 'http://sgx.geodatenzentrum.de/wmts_topplus_open/tile/1.0.0/web/default/WEBMERCATOR/{z}/{y}/{x}.png';
+    let layer010 = 'https://tile.jawg.io/jawg-streets/{z}/{x}/{y}{r}.png?access-token=loM4YuJJlF1FA6jLlT36Rrrwf8s8GJn1psVnRgk0oTs08FT5eKNxSa8cJu3I9ipu';
+    let attrb010 = '<a href="https://www.jawg.io?utm_medium=map&utm_source=attribution" target="_blank">&copy; Jawg</a> - <a href="https://www.openstreetmap.org?utm_medium=map-attribution&utm_source=jawg" target="_blank">&copy; OpenStreetMap</a>&nbsp;contributors';
+    
+    // Capa de OpenStreetMap
+    L.tileLayer(layer010, {
+      attribution: attrb010,
+      maxZoom: 18
+    }).addTo(map);
+    
+    // Icono personalizado (opcional - usa un marcador rojo por defecto)
+    const dojoIcon = L.divIcon({
+      className: 'custom-div-icon',
+      html: "<div style='background-color: #73142D; width: 12px; height: 12px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3);'></div>",
+      iconSize: [18, 18],
+      iconAnchor: [9, 9]
+    });
+    
+    // Marcador del dojo
+    L.marker(dojoCoords, { icon: dojoIcon })
+      .addTo(map)
+      .bindPopup('<b>CZGNB-44 (MIRANDA)</b><br>Av. Miranda / Guaicaipuro / Los Teques. Av. Principal con calle Nueva, Los Teques.')
+      .openPopup();
+    
+    // Ajustar mapa cuando se redimensione la ventana
+    window.addEventListener('resize', () => {
+      map.invalidateSize();
+    });
+  });
+</script>

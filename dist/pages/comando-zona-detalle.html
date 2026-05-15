@@ -1,0 +1,732 @@
+<head>
+<title>Detalle Comando de Zona | Comandos de Zonas</title>
+<!-- [Meta] -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta
+  name="description"
+  content="Datta Able is trending dashboard template made using Bootstrap 5 design framework. Datta Able is available in Bootstrap, React, CodeIgniter, Angular,  and .net Technologies."
+/>
+<meta
+  name="keywords"
+  content="Bootstrap admin template, Dashboard UI Kit, Dashboard Template, Backend Panel, react dashboard, angular dashboard"
+/>
+<meta name="author" content="CodedThemes" />
+
+<!-- [Favicon] icon -->
+<link rel="icon" href="../assets/images/favicon.svg" type="image/x-icon" />
+
+ <!-- [Font] Family -->
+ <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<!-- [phosphor Icons] https://phosphoricons.com/ -->
+<link rel="stylesheet" href="../assets/fonts/phosphor/duotone/style.css" />
+<!-- [Tabler Icons] https://tablericons.com -->
+<link rel="stylesheet" href="../assets/fonts/tabler-icons.min.css" />
+<!-- [Feather Icons] https://feathericons.com -->
+<link rel="stylesheet" href="../assets/fonts/feather.css" />
+<!-- [Font Awesome Icons] https://fontawesome.com/icons -->
+<link rel="stylesheet" href="../assets/fonts/fontawesome.css" />
+<!-- [Material Icons] https://fonts.google.com/icons -->
+<link rel="stylesheet" href="../assets/fonts/material.css" />
+<!-- [Template CSS Files] -->
+<link rel="stylesheet" href="../assets/css/style.css" id="main-style-link" />
+
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+</head>
+<!-- [Head] end -->
+<!-- [Body] Start -->
+
+<body>
+<!-- [ Pre-loader ] start -->
+<div class="loader-bg fixed inset-0 bg-white dark:bg-themedark-cardbg z-[1034]">
+  <div class="loader-track h-[5px] w-full inline-block absolute overflow-hidden top-0">
+    <div class="loader-fill w-[300px] h-[5px] bg-primary-500 absolute top-0 left-0 animate-[hitZak_0.6s_ease-in-out_infinite_alternate]"></div>
+  </div>
+</div>
+<!-- [ Pre-loader ] End -->
+ <!-- [ Sidebar Menu ] start -->
+<nav class="pc-sidebar !bg-transparent !shadow-none !border-r-0 overflow-hidden">
+  <!-- Imagen de fondo -->
+  <div class="absolute inset-0 z-0 bg-cover bg-center" 
+       style="background-image: url('../assets/images/authentication/img-auth-bg-1.jpg');"></div>
+  
+  <!-- Capa oscura + efecto glass -->
+  <div class="absolute inset-0 z-0 bg-gray-900/50 backdrop-blur-md"></div>
+
+  <!-- Contenido del sidebar -->
+  <div class="relative z-10 navbar-wrapper !bg-transparent">
+    <div class="m-header flex items-center py-4 px-6 h-header-height !bg-transparent">
+      <a href="../dashboard/index.html" class="b-brand flex items-center gap-3">
+        <img src="../assets/images/logo_escudo.png" class="img-fluid logo logo-md" alt="logo" />
+        <img src="../assets/images/favicon.svg" class="img-fluid logo logo-sm" alt="logo" />
+      </a>
+    </div>
+    <div class="navbar-content h-[calc(100vh_-_74px)] py-2.5 !bg-transparent">
+      <ul class="pc-navbar">
+        <li class="pc-item pc-caption">
+          <label>Navegación</label>
+        </li>
+        <li class="pc-item">
+        <li class="pc-item">
+          <a href="../dashboard/index.html" class="pc-link">
+            <span class="pc-micon">
+              <i class="material-icons-two-tone bg-primary-50">apps</i>
+            </span>
+            <span class="pc-mtext">Dashboard</span>
+          </a>
+        </li>
+        <li class="pc-item">
+          <a href="../pages/comando-zona.html" class="pc-link">
+            <span class="pc-micon">
+              <i class="material-icons-two-tone bg-primary-50">account_balance</i>
+            </span>
+            <span class="pc-mtext">Comando de zona</span>
+          </a>
+        </li>
+
+        <li class="pc-item">
+          <a href="../pages/login-v1.html" class="pc-link">
+            <span class="pc-micon">
+              <i class="material-icons-two-tone bg-primary-50">exit_to_app</i>
+            </span>
+            <span class="pc-mtext">Cerrar Sesión</span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- [ Sidebar Menu ] end --> <!-- [ Header Topbar ] start -->
+<header class="pc-header">
+  <div class="header-wrapper flex max-sm:px-[15px] px-[25px] grow"><!-- [Mobile Media Block] start -->
+<div class="me-auto pc-mob-drp">
+  <ul class="inline-flex *:min-h-header-height *:inline-flex *:items-center">
+    <!-- ======= Menu collapse Icon ===== -->
+    <li class="pc-h-item pc-sidebar-collapse max-lg:hidden lg:inline-flex">
+      <a href="#" class="pc-head-link ltr:!ml-0 rtl:!mr-0" id="sidebar-hide">
+        <i data-feather="menu"></i>
+      </a>
+    </li>
+    <li class="pc-h-item pc-sidebar-popup lg:hidden">
+      <a href="#" class="pc-head-link ltr:!ml-0 rtl:!mr-0" id="mobile-collapse">
+        <i data-feather="menu"></i>
+      </a>
+    </li>
+    <li class="dropdown pc-h-item">
+      <a class="pc-head-link dropdown-toggle me-0" data-pc-toggle="dropdown" href="#" role="button"
+        aria-haspopup="false" aria-expanded="false">
+        <i data-feather="search"></i>
+      </a>
+      <div class="dropdown-menu pc-h-dropdown drp-search">
+        <form class="px-2 py-1">
+          <input type="search" class="form-control !border-0 !shadow-none" placeholder="Search here. . ." />
+        </form>
+      </div>
+    </li>
+  </ul>
+</div>
+<!-- [Mobile Media Block end] -->
+<div class="ms-auto">
+  <ul class="inline-flex *:min-h-header-height *:inline-flex *:items-center">
+    <li class="dropdown pc-h-item">
+      <a class="pc-head-link dropdown-toggle me-0" data-pc-toggle="dropdown" href="#" role="button"
+        aria-haspopup="false" aria-expanded="false">
+        <i data-feather="sun"></i>
+      </a>
+      <div class="dropdown-menu dropdown-menu-end pc-h-dropdown">
+        <a href="#!" class="dropdown-item" onclick="layout_change('dark')">
+          <i data-feather="moon"></i>
+          <span>Dark</span>
+        </a>
+        <a href="#!" class="dropdown-item" onclick="layout_change('light')">
+          <i data-feather="sun"></i>
+          <span>Light</span>
+        </a>
+        <a href="#!" class="dropdown-item" onclick="layout_change_default()">
+          <i data-feather="settings"></i>
+          <span>Default</span>
+        </a>
+      </div>
+    </li>
+    <li class="dropdown pc-h-item">
+      <a class="pc-head-link dropdown-toggle me-0" data-pc-toggle="dropdown" href="#" role="button"
+        aria-haspopup="false" aria-expanded="false">
+        <i data-feather="settings"></i>
+      </a>
+      <div class="dropdown-menu dropdown-menu-end pc-h-dropdown">
+        <a href="#!" class="dropdown-item">
+          <i class="ti ti-user"></i>
+          <span>My Account</span>
+        </a>
+        <a href="#!" class="dropdown-item">
+          <i class="ti ti-settings"></i>
+          <span>Settings</span>
+        </a>
+        <a href="#!" class="dropdown-item">
+          <i class="ti ti-headset"></i>
+          <span>Support</span>
+        </a>
+        <a href="#!" class="dropdown-item">
+          <i class="ti ti-lock"></i>
+          <span>Lock Screen</span>
+        </a>
+        <a href="#!" class="dropdown-item">
+          <i class="ti ti-power"></i>
+          <span>Logout</span>
+        </a>
+      </div>
+    </li>
+    <li class="dropdown pc-h-item">
+      <a class="pc-head-link dropdown-toggle me-0" data-pc-toggle="dropdown" href="#" role="button"
+        aria-haspopup="false" aria-expanded="false">
+        <i data-feather="bell"></i>
+        <span class="badge bg-success-500 text-white rounded-full z-10 absolute right-0 top-0">3</span>
+      </a>
+      <div class="dropdown-menu dropdown-notification dropdown-menu-end pc-h-dropdown p-2">
+        <div class="dropdown-header flex items-center justify-between py-4 px-5">
+          <h5 class="m-0">Notifications</h5>
+          <a href="#!" class="btn btn-link btn-sm">Mark all read</a>
+        </div>
+        <div class="dropdown-body header-notification-scroll relative py-4 px-5"
+          style="max-height: calc(100vh - 215px)">
+          <p class="text-span mb-3">Today</p>
+          <div class="card mb-2">
+            <div class="card-body">
+              <div class="flex gap-4">
+                <div class="shrink-0">
+                  <img class="img-radius w-12 h-12 rounded-0" src="../assets/images/user/avatar-1.jpg" alt="Generic placeholder image" />
+                </div>
+                <div class="grow">
+                  <span class="float-end text-sm text-muted">2 min ago</span>
+                  <h5 class="text-body mb-2">UI/UX Design</h5>
+                  <p class="mb-0">
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of
+                    type and scrambled it to make a type
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-2">
+            <div class="card-body">
+              <div class="flex gap-4">
+                <div class="shrink-0">
+                  <img class="img-radius w-12 h-12 rounded-0" src="../assets/images/user/avatar-2.jpg" alt="Generic placeholder image" />
+                </div>
+                <div class="grow">
+                  <span class="float-end text-sm text-muted">1 hour ago</span>
+                  <h5 class="text-body mb-2">Message</h5>
+                  <p class="mb-0">Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="text-span mb-3 mt-4">Yesterday</p>
+          <div class="card mb-2">
+            <div class="card-body">
+              <div class="flex gap-4">
+                <div class="shrink-0">
+                  <img class="img-radius w-12 h-12 rounded-0" src="../assets/images/user/avatar-3.jpg" alt="Generic placeholder image" />
+                </div>
+                <div class="grow ms-3">
+                  <span class="float-end text-sm text-muted">2 hour ago</span>
+                  <h5 class="text-body mb-2">Forms</h5>
+                  <p class="mb-0">
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of
+                    type and scrambled it to make a type
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-2">
+            <div class="card-body">
+              <div class="flex gap-4">
+                <div class="shrink-0">
+                  <img class="img-radius w-12 h-12 rounded-0" src="../assets/images/user/avatar-4.jpg" alt="Generic placeholder image" />
+                </div>
+                <div class="grow ms-3">
+                  <span class="float-end text-sm text-muted">12 hour ago</span>
+                  <h5 class="text-body mb-2">Challenge invitation</h5>
+                  <p class="mb-2">
+                    <strong>Jonny aber</strong>
+                    invites to join the challenge
+                  </p>
+                  <button class="btn btn-sm btn-outline-secondary me-2">Decline</button>
+                  <button class="btn btn-sm btn-primary">Accept</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-2">
+            <div class="card-body">
+              <div class="flex gap-4">
+                <div class="shrink-0">
+                  <img class="img-radius w-12 h-12 rounded-0" src="../assets/images/user/avatar-5.jpg" alt="Generic placeholder image" />
+                </div>
+                <div class="grow ms-3">
+                  <span class="float-end text-sm text-muted">5 hour ago</span>
+                  <h5 class="text-body mb-2">Security</h5>
+                  <p class="mb-0">
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of
+                    type and scrambled it to make a type
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center py-2">
+          <a href="#!" class="text-danger-500 hover:text-danger-600 focus:text-danger-600 active:text-danger-600">
+            Clear all Notifications
+          </a>
+        </div>
+      </div>
+    </li>
+    <li class="dropdown pc-h-item header-user-profile">
+      <a class="pc-head-link dropdown-toggle arrow-none me-0" data-pc-toggle="dropdown" href="#" role="button"
+        aria-haspopup="false" data-pc-auto-close="outside" aria-expanded="false">
+        <i data-feather="user"></i>
+      </a>
+      <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown p-2 overflow-hidden">
+        <div class="dropdown-header flex items-center justify-between py-4 px-5 bg-primary-500">
+          <div class="flex mb-1 items-center">
+            <div class="shrink-0">
+              <img src="../assets/images/user/avatar-2.jpg" alt="user-image" class="w-10 rounded-full" />
+            </div>
+            <div class="grow ms-3">
+              <h6 class="mb-1 text-white">Carson Darrin 🖖</h6>
+              <span class="text-white">carson.darrin@company.io</span>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown-body py-4 px-5">
+          <div class="profile-notification-scroll position-relative" style="max-height: calc(100vh - 225px)">
+            <a href="#" class="dropdown-item">
+              <span>
+                <svg class="pc-icon text-muted me-2 inline-block">
+                  <use xlink:href="#custom-setting-outline"></use>
+                </svg>
+                <span>Settings</span>
+              </span>
+            </a>
+            <a href="#" class="dropdown-item">
+              <span>
+                <svg class="pc-icon text-muted me-2 inline-block">
+                  <use xlink:href="#custom-share-bold"></use>
+                </svg>
+                <span>Share</span>
+              </span>
+            </a>
+            <a href="#" class="dropdown-item">
+              <span>
+                <svg class="pc-icon text-muted me-2 inline-block">
+                  <use xlink:href="#custom-lock-outline"></use>
+                </svg>
+                <span>Change Password</span>
+              </span>
+            </a>
+            <div class="grid my-3">
+              <button class="btn btn-primary flex items-center justify-center">
+                <svg class="pc-icon me-2 w-[22px] h-[22px]">
+                  <use xlink:href="#custom-logout-1-outline"></use>
+                </svg>
+                Logout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div></div>
+</header>
+<!-- [ Header ] end -->
+
+
+
+  <div class="pc-container">
+    <div class="pc-content">
+      <!-- [ breadcrumb ] start -->
+      <div class="page-header">
+        <div class="page-block">
+          <div class="page-header-title">
+            <h5 class="mb-0 font-medium">CZGNB-44 (MIRANDA)</h5>
+          </div>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../dashboard/index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="javascript: void(0)">Comando de Zona</a></li>
+            <li class="breadcrumb-item" aria-current="page">CZGNB-44 (MIRANDA)</li>
+          </ul>
+        </div>
+      </div>
+      <!-- [ breadcrumb ] end -->
+
+      <!-- Encabezado con botón de retorno -->
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+        <div class="flex items-center gap-3">
+          <a href="comando-zona.html" class="btn btn-light border border-theme-border dark:border-themedark-border hover:bg-theme-activebg dark:hover:bg-themedark-activebg transition-colors flex items-center gap-2">
+            <i data-feather="arrow-left" class="w-4 h-4"></i> Volver al listado
+          </a>
+          <div class="pt-5-">
+            
+          </div>
+        </div>
+        <button class="btn btn-primary flex items-center gap-2 shadow-lg shadow-primary-500/20">
+          <i data-feather="edit-2"></i> <span>Editar</span>
+        </button>
+      </div>
+
+      <!-- Grid Principal -->
+      <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+        
+        <!-- 📍 Columna Izquierda: Información + Mapa + Fotos del Dojo (2/3 del ancho) -->
+        <div class="xl:col-span-2 space-y-6">
+            <!-- Galería de Fotos del Dojo -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="relative h-80 rounded-xl overflow-hidden border border-theme-border dark:border-themedark-border shadow-sm group">
+              <a href="../assets/images/cz/cz-gnb-44-ent_001.jpg" target="_blank">
+                <img src="../assets/images/cz/cz-gnb-44-ent_001.jpg" 
+                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                   alt="Sala Principal del Dojo">
+              </a>
+              <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+                <p class="text-white font-medium text-sm">Prevención</p>
+              </div>
+            </div>
+            <div class="relative h-80 rounded-xl overflow-hidden border border-theme-border dark:border-themedark-border shadow-sm group">
+                <a href="../assets/images/cz/cz-gnb-44-prev_001.jpg" target="_blank">
+                    <img src="../assets/images/cz/cz-gnb-44-prev_001.jpg" 
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                        alt="Área de Entrenamiento">
+                </a>
+                
+              <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+                <p class="text-white font-medium text-sm">Entrada Principal</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ficha del Dojo -->
+          <div class="bg-theme-cardbg dark:bg-themedark-cardbg rounded-xl shadow-sm border border-theme-border dark:border-themedark-border p-6 transition-shadow hover:shadow-md">
+            <h2 class="text-lg font-bold text-theme-headings dark:text-themedark-headings mb-4 flex items-center gap-2">
+              <i data-feather="map" class="w-5 h-5 text-primary-500"></i> Información detallada
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-3 rounded-lg">
+                <span class="block text-xs uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-1">Dirección</span>
+                <p class="font-medium text-theme-headings dark:text-themedark-headings">Miranda / Guaicaipuro / Los Teques. Av. Principal con calle Nueva, Los Teques.</p>
+              </div>
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-3 rounded-lg">
+                <span class="block text-xs uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-1">Referencia Geográfica</span>
+                <p class="font-medium text-theme-headings dark:text-themedark-headings">A 100 metros de la E/S La esquina</p>
+              </div>
+              <div class="sm:col-span-2 bg-gray-50 dark:bg-gray-700/30 p-3 rounded-lg">
+                <span class="block text-xs uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-1">Descripción</span>
+                <p class="text-theme-bodycolor dark:text-themedark-bodycolor leading-relaxed">
+                  Comando de Zona número 44 del estado Miranda.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mapa de Ubicación -->
+          <div class="bg-theme-cardbg dark:bg-themedark-cardbg rounded-xl shadow-sm border border-theme-border dark:border-themedark-border overflow-hidden">
+            <div class="p-4 border-b border-theme-border dark:border-themedark-border">
+              <h2 class="text-lg font-bold text-theme-headings dark:text-themedark-headings flex items-center gap-2">
+                <i data-feather="map-pin" class="w-5 h-5 text-primary-500"></i> Ubicación
+              </h2>
+            </div>
+            <div id="dojo-map" class="h-svh w-full bg-gray-100 dark:bg-gray-800"></div>
+          </div>
+        </div>
+
+        <!-- 🥋 Columna Derecha: Sensei + Inventario (1/3 del ancho) -->
+        <div class="space-y-6">
+          <!-- Ficha del Sensei -->
+          <div class="bg-theme-cardbg dark:bg-themedark-cardbg rounded-xl shadow-sm border border-theme-border dark:border-themedark-border p-6 transition-shadow hover:shadow-md">
+            <h2 class="text-lg font-bold text-theme-headings dark:text-themedark-headings mb-4 flex items-center gap-2">
+              <i data-feather="user-check" class="w-5 h-5 text-primary-500"></i> Comandante de Zona
+            </h2>
+            <div class="flex items-center gap-4 mb-4">
+              <img src="../assets/images/command/command_001.jpg" 
+                   class="w-20 h-20 rounded-full object-cover border-4 border-primary-100 dark:border-primary-800/50 shadow-sm" 
+                   alt="Márquez Guillén, Luis Miguel">
+              <div>
+                <h3 class="text-xl font-bold text-theme-headings dark:text-themedark-headings">Márquez Guillén, Luis Miguel</h3>
+                <p class="text-sm text-primary-600 dark:text-primary-400 font-semibold">GB • GNB</p>
+              </div>
+            </div>
+            <div class="space-y-3 text-sm border-t border-theme-border dark:border-themedark-border pt-4">
+              <div class="flex justify-between">
+                <span class="text-gray-500 dark:text-gray-400">Teléfonos</span>
+                <span class="font-medium text-theme-headings dark:text-themedark-headings">+58 426 5554433 / 58 412 5554433</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-500 dark:text-gray-400">Correo electrónico</span>
+                <span class="font-medium text-theme-headings dark:text-themedark-headings">lmarquezg@mail.com</span>
+              </div>
+              <p class="text-xs text-theme-bodycolor dark:text-themedark-bodycolor mt-2 leading-relaxed">
+                General de Brigada de la Guardia Nacional Bolivariana.
+              </p>
+            </div>
+          </div>
+
+          <!-- Personal Disponible -->
+          <div class="bg-theme-cardbg dark:bg-themedark-cardbg rounded-xl shadow-sm border border-theme-border dark:border-themedark-border p-6 transition-shadow hover:shadow-md">
+            <h2 class="text-lg font-bold text-theme-headings dark:text-themedark-headings mb-4 flex items-center gap-2">
+              <i class="material-icons-two-tone bg-primary-700 dark:bg-primary-400">group</i> Personal
+            </h2>
+            <div class="grid grid-cols-1 gap-4 mb-4">
+              <!-- Parte numérico -->
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">group</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">142</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Parte Numérico</div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+              <div class="bg-primary-50 dark:bg-primary-900/30 p-4 rounded-lg text-center border border-primary-100 dark:border-primary-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-primary-700 dark:bg-primary-400 mx-auto mb-2">person</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">70</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Parte Femenino</div>
+              </div>
+
+              <div class="bg-blue-50 dark:bg-blue-700/30 p-4 rounded-lg text-center border border-blue-100 dark:border-blue-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-blue-700 dark:bg-blue-400 mx-auto mb-2">person</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">72</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Parte Masculino</div>
+              </div>
+            </div>
+
+
+            <div class="grid grid-cols-3 gap-4 mb-4">
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">person</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">15</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Oficiales Generales</div>
+              </div>
+
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">person</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">25</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Oficiales Superiores</div>
+              </div>
+
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">person</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">102</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Oficiales Subalternos</div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 mb-4">
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">person</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">15</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Tropa Profesional</div>
+              </div>
+
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">person</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">25</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Tropa Alistadas</div>
+              </div>
+
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">person</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">102</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Personal Civil</div>
+              </div>
+            </div>
+
+
+            <div class="mt-4 pt-3 border-t border-theme-border dark:border-themedark-border flex items-center justify-between text-xs">
+              <span class="text-gray-500 dark:text-gray-400">Última actualización:</span>
+              <span class="font-medium text-theme-headings dark:text-themedark-headings">Hoy, 08:30 AM</span>
+            </div>
+          </div>
+
+          <!-- Estructura -->
+          <div class="bg-theme-cardbg dark:bg-themedark-cardbg rounded-xl shadow-sm border border-theme-border dark:border-themedark-border p-6 transition-shadow hover:shadow-md">
+            <h2 class="text-lg font-bold text-theme-headings dark:text-themedark-headings mb-4 flex items-center gap-2">
+              <i class="material-icons-two-tone bg-primary-700 dark:bg-primary-400">account_balance</i> Estructura
+            </h2>
+            <div class="grid grid-cols-1 gap-4 mb-4">
+              <!-- Destacamento -->
+              <div class="bg-gray-50 dark:bg-gray-900/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">house_siding</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">05</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Destacamentos</div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <!-- compañia -->
+              <div class="bg-gray-50 dark:bg-gray-900/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">house_siding</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">20</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Compañías</div>
+              </div>
+              <!-- Pelotones -->
+              <div class="bg-gray-50 dark:bg-gray-900/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">house_siding</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">60</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Pelotones</div>
+              </div>
+              <!-- Escuadra -->
+              <div class="bg-gray-50 dark:bg-gray-900/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">house_siding</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">90</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Escuadras</div>
+              </div>
+              <!-- PAC -->
+              <div class="bg-gray-50 dark:bg-gray-900/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">house_siding</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">65</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">PAC</div>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-theme-border dark:border-themedark-border flex items-center justify-between text-xs">
+              <span class="text-gray-500 dark:text-gray-400">Última actualización:</span>
+              <span class="font-medium text-theme-headings dark:text-themedark-headings">Hoy, 08:30 AM</span>
+            </div>
+          </div>
+
+          <!-- Vehículos -->
+          <div class="bg-theme-cardbg dark:bg-themedark-cardbg rounded-xl shadow-sm border border-theme-border dark:border-themedark-border p-6 transition-shadow hover:shadow-md">
+            <h2 class="text-lg font-bold text-theme-headings dark:text-themedark-headings mb-4 flex items-center gap-2">
+              <i class="material-icons-two-tone bg-primary-700 dark:bg-primary-400">local_taxi</i> Vehículos
+            </h2>
+            <div class="grid grid-cols-2 gap-4">
+              <!-- Vehiculos operativos -->
+              <div class="bg-emerald-50 dark:bg-emerald-900/30 p-4 rounded-lg text-center border border-emerald-100 dark:border-emerald-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-success-700 dark:bg-success-400 mx-auto mb-2">local_taxi</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">25</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Operativos</div>
+              </div>
+              <!-- Vehiculos inoperativos -->
+              <div class="bg-primary-50 dark:bg-primary-700/30 p-4 rounded-lg text-center border border-primary-100 dark:border-primary-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-primary-700 dark:bg-primary-400 mx-auto mb-2">local_taxi</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">4</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Inoperativos</div>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-theme-border dark:border-themedark-border flex items-center justify-between text-xs">
+              <span class="text-gray-500 dark:text-gray-400">Última actualización:</span>
+              <span class="font-medium text-theme-headings dark:text-themedark-headings">Hoy, 08:30 AM</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<footer class="pc-footer">
+  <div class="footer-wrapper container-fluid mx-10">
+    <div class="grid grid-cols-12 gap-1.5">
+      <div class="col-span-12 sm:col-span-6 my-1">
+        <p class="m-0 text-center">@</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<!-- Required Js -->
+<script src="../assets/js/plugins/simplebar.min.js"></script>
+<script src="../assets/js/plugins/popper.min.js"></script>
+<script src="../assets/js/icon/custom-icon.js"></script>
+<script src="../assets/js/plugins/feather.min.js"></script>
+<script src="../assets/js/component.js"></script>
+<script src="../assets/js/theme.js"></script>
+<script src="../assets/js/script.js"></script>
+
+<div class="floting-button fixed bottom-[50px] right-[30px] z-[1030]">
+</div>
+
+
+<script>
+  layout_change('false');
+</script>
+ 
+
+<script>
+  layout_theme_sidebar_change('dark');
+</script>
+
+ 
+<script>
+  change_box_container('false');
+</script>
+ 
+<script>
+  layout_caption_change('true');
+</script>
+ 
+<script>
+  layout_rtl_change('false');
+</script>
+ 
+<script>
+  preset_change('preset-1');
+</script>
+ 
+<script>
+  main_layout_change('vertical');
+</script>
+
+
+
+<!-- Script para inicializar el mapa -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const dojoCoords = [10.24326, -66.55467];
+    
+    // Inicializar mapa
+    const map = L.map('dojo-map').setView(dojoCoords, 11);
+
+    let layer001 = 'https://tile.openstreetmap.de/{z}/{x}/{y}.png';
+    let attrb001 = '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+    let layer002 = 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
+    let layer003 = 'https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png';
+    let layer300 = 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png';
+    let layer005 = 'https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png';
+    let layer006 = 'http://sgx.geodatenzentrum.de/wmts_topplus_open/tile/1.0.0/web/default/WEBMERCATOR/{z}/{y}/{x}.png';
+    let layer010 = 'https://tile.jawg.io/jawg-streets/{z}/{x}/{y}{r}.png?access-token=loM4YuJJlF1FA6jLlT36Rrrwf8s8GJn1psVnRgk0oTs08FT5eKNxSa8cJu3I9ipu';
+    let attrb010 = '<a href="https://www.jawg.io?utm_medium=map&utm_source=attribution" target="_blank">&copy; Jawg</a> - <a href="https://www.openstreetmap.org?utm_medium=map-attribution&utm_source=jawg" target="_blank">&copy; OpenStreetMap</a>&nbsp;contributors';
+    
+    // Capa de OpenStreetMap
+    L.tileLayer(layer010, {
+      attribution: attrb010,
+      maxZoom: 18
+    }).addTo(map);
+    
+    // Icono personalizado (opcional - usa un marcador rojo por defecto)
+    const dojoIcon = L.divIcon({
+      className: 'custom-div-icon',
+      html: "<div style='background-color: #73142D; width: 12px; height: 12px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3);'></div>",
+      iconSize: [18, 18],
+      iconAnchor: [9, 9]
+    });
+    
+    // Marcador del dojo
+    L.marker(dojoCoords, { icon: dojoIcon })
+      .addTo(map)
+      .bindPopup('<b>CZGNB-44 (MIRANDA)</b><br>Av. Miranda / Guaicaipuro / Los Teques. Av. Principal con calle Nueva, Los Teques.')
+      .openPopup();
+    
+    // Ajustar mapa cuando se redimensione la ventana
+    window.addEventListener('resize', () => {
+      map.invalidateSize();
+    });
+  });
+</script>
