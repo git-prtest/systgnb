@@ -598,34 +598,34 @@
         // Inicializar mapa
         const map = L.map(mapDiv).setView(dojoCoords, 11);
         // Se selecciona el mapa por defecto
-        tileOSMHOT.addTo(map);
+tileOSMHOT.addTo(map);
 
         // Se agrega selector de capas
-        L.control.layers(baseMaps).addTo(map);
+L.control.layers(baseMaps).addTo(map);
 
 
-        const markersGroup = L.featureGroup();
-        
+const markersGroup = L.featureGroup();
+
 
         
         // Icono personalizado (opcional - usa un marcador rojo por defecto)
-        const dojoIcon = L.divIcon({
-          className: 'custom-div-icon',
-          html: "<div style='background-color: #73142D; width: 12px; height: 12px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3);'></div>",
-          iconSize: [18, 18],
-          iconAnchor: [9, 9]
-        });
-        
+const dojoIcon = L.divIcon({
+    className: 'custom-div-icon',
+    html: "<div style='background-color: #73142D; width: 12px; height: 12px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3);'></div>",
+    iconSize: [18, 18],
+    iconAnchor: [9, 9]
+});
+
         // Marcador del dojo
         L.marker(dojoCoords, { icon: dojoIcon })
           .addTo(map)
           .bindPopup('<a href="../pages/comando-zona-detalle.html"><b>CZGNB-44 (MIRANDA)</b></a><br>Av. Miranda / Guaicaipuro / Los Teques. Av. Principal con calle Nueva, Los Teques.')
           .openPopup();
-        
+
         // Ajustar mapa cuando se redimensione la ventana
-        window.addEventListener('resize', () => {
-          map.invalidateSize();
-        });
+window.addEventListener('resize', () => {
+    map.invalidateSize();
+});
       });
     </script>
   </body>

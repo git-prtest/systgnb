@@ -1,3 +1,4 @@
+<head>
 <title>Detalle Comando de Zona | Comandos de Zonas</title>
 <!-- [Meta] -->
 <meta charset="utf-8" />
@@ -31,8 +32,14 @@
 <!-- [Template CSS Files] -->
 <link rel="stylesheet" href="../assets/css/style.css" id="main-style-link" />
 
+
 <!-- Leaflet CSS -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+</head>
+<!-- [Head] end -->
+<!-- [Body] Start -->
+
+<body>
 <!-- [ Pre-loader ] start -->
 <div class="loader-bg fixed inset-0 bg-white dark:bg-themedark-cardbg z-[1034]">
   <div class="loader-track h-[5px] w-full inline-block absolute overflow-hidden top-0">
@@ -345,33 +352,32 @@
 
 
 
-  <!-- [ breadcrumb ] start -->
-  <div class="page-header">
-    <div class="page-block">
-      <div class="page-header-title">
-        <h5 class="mb-0 font-medium">Destacamento CZGNB-44 (MIRANDA)</h5>
-      </div>
-      <ul class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../dashboard/index.html">Home</a></li>
-        <li class="breadcrumb-item"><a href="javascript: void(0)">Destacamento</a></li>
-        <li class="breadcrumb-item" aria-current="page">Destacamento CZGNB-44 (MIRANDA)</li>
-      </ul>
-    </div>
-  </div>
-  <!-- [ breadcrumb ] end -->
-
-
   <div class="pc-container">
     <div class="pc-content">
+      <!-- [ breadcrumb ] start -->
+      <div class="page-header">
+        <div class="page-block">
+          <div class="page-header-title">
+            <h5 class="mb-0 font-medium">Destacamento CZGNB-44 (MIRANDA)</h5>
+          </div>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../dashboard/index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="javascript: void(0)">Comando de Zona</a></li>
+            <li class="breadcrumb-item"><a href="javascript: void(0)">Destacamento</a></li>
+            <li class="breadcrumb-item" aria-current="page">Destacamento CZGNB-44 (MIRANDA)</li>
+          </ul>
+        </div>
+      </div>
+      <!-- [ breadcrumb ] end -->
+
       <!-- Encabezado con botón de retorno -->
       <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
         <div class="flex items-center gap-3">
           <a href="comando-zona.html" class="btn btn-light border border-theme-border dark:border-themedark-border hover:bg-theme-activebg dark:hover:bg-themedark-activebg transition-colors flex items-center gap-2">
             <i data-feather="arrow-left" class="w-4 h-4"></i> Volver al listado
           </a>
-          <div>
-            <h1 class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">CZGNB-44 (MIRANDA)</h1>
-            <p class="text-sm text-theme-bodycolor dark:text-themedark-bodycolor">ID: CZGNB-44</p>
+          <div class="pt-5-">
+            
           </div>
         </div>
         <button class="btn btn-primary flex items-center gap-2 shadow-lg shadow-primary-500/20">
@@ -386,7 +392,7 @@
         <div class="xl:col-span-2 space-y-6">
             <!-- Galería de Fotos del Dojo -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="relative h-64 rounded-xl overflow-hidden border border-theme-border dark:border-themedark-border shadow-sm group">
+            <div class="relative h-80 rounded-xl overflow-hidden border border-theme-border dark:border-themedark-border shadow-sm group">
               <a href="../assets/images/cz/cz-gnb-44-ent_001.jpg" target="_blank">
                 <img src="../assets/images/cz/cz-gnb-44-ent_001.jpg" 
                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
@@ -396,7 +402,7 @@
                 <p class="text-white font-medium text-sm">Prevención</p>
               </div>
             </div>
-            <div class="relative h-64 rounded-xl overflow-hidden border border-theme-border dark:border-themedark-border shadow-sm group">
+            <div class="relative h-80 rounded-xl overflow-hidden border border-theme-border dark:border-themedark-border shadow-sm group">
                 <a href="../assets/images/cz/cz-gnb-44-prev_001.jpg" target="_blank">
                     <img src="../assets/images/cz/cz-gnb-44-prev_001.jpg" 
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
@@ -439,7 +445,7 @@
                 <i data-feather="map-pin" class="w-5 h-5 text-primary-500"></i> Ubicación
               </h2>
             </div>
-            <div id="dojo-map" class="h-80 w-full bg-gray-100 dark:bg-gray-800"></div>
+            <div id="dojo-map" class="h-svh w-full bg-gray-100 dark:bg-gray-800"></div>
           </div>
         </div>
 
@@ -481,13 +487,13 @@
             </h2>
             <div class="grid grid-cols-1 gap-4 mb-4">
               <!-- Parte numérico -->
-              <div class="bg-gray-50 dark:bg-gray-900/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
                 <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">group</i>
                 <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">142</div>
                 <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Parte Numérico</div>
               </div>
             </div>
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-2 gap-4 mb-4">
               <div class="bg-primary-50 dark:bg-primary-900/30 p-4 rounded-lg text-center border border-primary-100 dark:border-primary-800/50 hover:-translate-y-0.5 transition-transform">
                 <i class="material-icons-two-tone bg-primary-700 dark:bg-primary-400 mx-auto mb-2">person</i>
                 <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">70</div>
@@ -500,6 +506,49 @@
                 <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Parte Masculino</div>
               </div>
             </div>
+
+
+            <div class="grid grid-cols-3 gap-4 mb-4">
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">person</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">15</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Oficiales Generales</div>
+              </div>
+
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">person</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">25</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Oficiales Superiores</div>
+              </div>
+
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">person</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">102</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Oficiales Subalternos</div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 mb-4">
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">person</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">15</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Tropa Profesional</div>
+              </div>
+
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">person</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">25</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Tropa Alistadas</div>
+              </div>
+
+              <div class="bg-gray-50 dark:bg-gray-700/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">person</i>
+                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">102</div>
+                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Personal Civil</div>
+              </div>
+            </div>
+
+
             <div class="mt-4 pt-3 border-t border-theme-border dark:border-themedark-border flex items-center justify-between text-xs">
               <span class="text-gray-500 dark:text-gray-400">Última actualización:</span>
               <span class="font-medium text-theme-headings dark:text-themedark-headings">Hoy, 08:30 AM</span>
@@ -513,11 +562,13 @@
             </h2>
             <div class="grid grid-cols-1 gap-4 mb-4">
               <!-- Destacamento -->
-              <div class="bg-gray-50 dark:bg-gray-900/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
-                <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">house_siding</i>
-                <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">05</div>
-                <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Destacamentos</div>
-              </div>
+               <a href="./destacamento.html" class="">
+                 <div class="bg-gray-50 dark:bg-gray-900/30 p-4 rounded-lg text-center border border-gray-100 dark:border-gray-800/50 hover:-translate-y-0.5 transition-transform">
+                   <i class="material-icons-two-tone bg-gray-700 dark:bg-gray-400 mx-auto mb-2">house_siding</i>
+                   <div class="text-2xl font-bold text-theme-headings dark:text-themedark-headings">05</div>
+                   <div class="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">Destacamentos</div>
+                 </div>
+               </a>
             </div>
             <div class="grid grid-cols-2 gap-4">
               <!-- compañia -->
@@ -644,17 +695,23 @@
     const dojoCoords = [10.24326, -66.55467];
     
     // Inicializar mapa
-    const map = L.map('dojo-map').setView(dojoCoords, 15);
+    const map = L.map('dojo-map').setView(dojoCoords, 11);
 
     let layer001 = 'https://tile.openstreetmap.de/{z}/{x}/{y}.png';
+    let attrb001 = '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+    let layer002 = 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
+    let layer003 = 'https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png';
+    let layer300 = 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png';
+    let layer005 = 'https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png';
+    let layer006 = 'http://sgx.geodatenzentrum.de/wmts_topplus_open/tile/1.0.0/web/default/WEBMERCATOR/{z}/{y}/{x}.png';
+    let layer010 = 'https://tile.jawg.io/jawg-streets/{z}/{x}/{y}{r}.png?access-token=loM4YuJJlF1FA6jLlT36Rrrwf8s8GJn1psVnRgk0oTs08FT5eKNxSa8cJu3I9ipu';
+    let attrb010 = '<a href="https://www.jawg.io?utm_medium=map&utm_source=attribution" target="_blank">&copy; Jawg</a> - <a href="https://www.openstreetmap.org?utm_medium=map-attribution&utm_source=jawg" target="_blank">&copy; OpenStreetMap</a>&nbsp;contributors';
     
     // Capa de OpenStreetMap
-    L.tileLayer(layer001, {
-      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    L.tileLayer(layer010, {
+      attribution: attrb010,
       maxZoom: 18
     }).addTo(map);
-
-
     
     // Icono personalizado (opcional - usa un marcador rojo por defecto)
     const dojoIcon = L.divIcon({
