@@ -595,8 +595,6 @@
           { id: 4, name: 'Dojo Bushido Oriente', coords: [19.4280, -99.0950], address: 'Av. Puebla 321, CDMX', phone: '+52 55 4567 8901', students: 54, sensei: 'Laura Jiménez', isMain: false }
         ];
 
-
-        
         // Inicializar mapa
         const map = L.map(mapDiv).setView(dojoCoords, 11);
         // Se selecciona el mapa por defecto
@@ -606,6 +604,8 @@
         L.control.layers(baseMaps).addTo(map);
 
 
+        const markersGroup = L.featureGroup();
+        
 
         
         // Icono personalizado (opcional - usa un marcador rojo por defecto)
@@ -619,7 +619,7 @@
         // Marcador del dojo
         L.marker(dojoCoords, { icon: dojoIcon })
           .addTo(map)
-          .bindPopup('<a href="/pages/comando-zona-detalle.html"><b>CZGNB-44 (MIRANDA)</b></a><br>Av. Miranda / Guaicaipuro / Los Teques. Av. Principal con calle Nueva, Los Teques.')
+          .bindPopup('<a href="../pages/comando-zona-detalle.html"><b>CZGNB-44 (MIRANDA)</b></a><br>Av. Miranda / Guaicaipuro / Los Teques. Av. Principal con calle Nueva, Los Teques.')
           .openPopup();
         
         // Ajustar mapa cuando se redimensione la ventana
